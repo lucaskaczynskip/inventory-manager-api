@@ -4,16 +4,16 @@ import { v4 as uuid } from "uuid";
 @Entity("users")
 export class User {
   @PrimaryColumn()
-  id: String;
+  id: string;
 
   @Column()
-  name: String;
+  name: string;
 
   @Column()
-  email: String;
+  email: string;
 
   @Column()
-  password: String;
+  password: string;
 
   @CreateDateColumn()
   created_at: Date;
