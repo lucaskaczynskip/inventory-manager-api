@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { UserController } from "./controllers/UserController";
+import { UserCreateController } from "./controllers/UserCreateController";
+import { UserLoginController } from "./controllers/UserLoginController";
 
 const routes = Router();
 
-const userController = new UserController();
-
-routes.post("/users", userController.create);
+routes.post("/users", new UserCreateController().create);
+routes.post("/login", new UserLoginController().handle);
 
 export { routes };
