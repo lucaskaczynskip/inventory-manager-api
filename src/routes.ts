@@ -2,7 +2,7 @@ import { Router } from "express";
 
 // Controllers
 import { GetAllUserController } from "./controllers/GetAllUsersService";
-import { UserCreateController } from "./controllers/UserController";
+import { UserCreateController } from "./controllers/UserCreateController";
 import { UserLoginController } from "./controllers/UserLoginController";
 
 //Middlewares
