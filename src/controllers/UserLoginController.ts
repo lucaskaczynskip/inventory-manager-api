@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { UserLoginService } from "../services/UserLoginService";
 import { sign } from "jsonwebtoken";
-import jwt from "../database/secret";
 
 export class UserLoginController {
   async handle(req: Request, res: Response) {
@@ -17,9 +16,9 @@ export class UserLoginController {
       })
     }
 
-    const token = sign({}, jwt.secret, {
+    const token = sign({}, process.env.JWT_SECRET, {
       subject: user.id,
-      expiresIn: jwt.expiresIn
+      expiresIn: process.env.JWT_EXPIRESIN
     });
 
     return res.status(200).json({

@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
-import jwt from "../database/secret";
 
 export default (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -15,7 +14,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
     const [bearer, token] = auth.split(" ");
 
-    const decoded = verify(token, jwt.secret);
+    const decoded = verify(token, process.env.JWT_SECRET);
 
     if (!decoded) {
       return res.status(400).json({
