@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 import jwt from "../database/secret";
 
-export default function (req: Request, res: Response, next: NextFunction) {
+export default (req: Request, res: Response, next: NextFunction) => {
   try {
     const auth = req.headers.authorization;
 
@@ -13,7 +13,7 @@ export default function (req: Request, res: Response, next: NextFunction) {
       });
     }
 
-    const [, token] = auth.split(" ");
+    const [bearer, token] = auth.split(" ");
 
     const decoded = verify(token, jwt.secret);
 
