@@ -5,6 +5,6 @@ export class GetAllUsersService {
   async execute() {
     const repo = getRepository(User);
 
-    return repo.find();
+    return await repo.find();
   }
 }
