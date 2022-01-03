@@ -9,7 +9,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
     const decoded = decode(token, { json: true });
     
     if (id != decoded.sub) {
-      return res.status(400).json({
+      return res.status(401).json({
         error: true,
         message: "Unauthorized action."
       })
