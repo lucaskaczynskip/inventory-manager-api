@@ -9,6 +9,7 @@ import { UserLoginController } from "./controllers/UserLoginController";
 
 //Middlewares
 import auth from "./middlewares/auth";
+import isLogged from "./middlewares/isLogged";
 
 const routes = Router();
 
@@ -17,6 +18,6 @@ routes.post("/login", new UserLoginController().handle);
 routes.post("/users", new UserCreateController().handle);
 routes.get("/users", auth, new GetAllUserController().handle);
 routes.get("/users/:id", auth, new GetUserByIdController().handle);
-routes.delete("/users/:id", auth, new UserDeleteController().handle);
+routes.delete("/users/:id", auth, isLogged, new UserDeleteController().handle);
 
 export { routes };
