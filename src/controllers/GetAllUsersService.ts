@@ -15,7 +15,7 @@ export class GetAllUserController {
       }
     });
 
-    return res.status(400).json({
+    return res.status(200).json({
       error: false,
       users: users 
     });
