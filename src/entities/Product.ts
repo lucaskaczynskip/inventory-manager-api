@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, OneToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, JoinColumn, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
@@ -19,12 +19,12 @@ export class Product {
   @CreateDateColumn()
   created_at: Date;
 
-  @CreateDateColumn()
-  expiration_date: Date;
-
-  @OneToOne(() => User)
-  @JoinColumn({ name: "id" })
+  @Column()
   user_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "id" })
+  user: string;
 
   constructor() {
     if (!this.id) this.id = uuid();
