@@ -1,5 +1,6 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, OneToMany, JoinColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Product } from "./Product";
 
 @Entity("users")
 export class User {
@@ -17,6 +18,10 @@ export class User {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @OneToMany(() => Product, product => product.user)
+  @JoinColumn({ name: "id" })
+  products: Product;
 
   constructor() {
     if (!this.id) this.id = uuid();

@@ -23,7 +23,7 @@ export class Product {
   user_id: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: "id" })
+  @JoinColumn({ name: "user_id" })
   user: string;
 
   constructor() {
