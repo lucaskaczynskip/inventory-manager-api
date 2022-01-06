@@ -18,6 +18,10 @@ export class ProductCreateService {
       return new Error("User does not exists.");
     }
 
+    if (await repo.findOne({ name })) {
+      return new Error("Product already exists.")
+    }
+
     const product = repo.create({ name, description, quantity, user_id });
 
     await repo.save(product);
