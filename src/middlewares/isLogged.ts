@@ -10,7 +10,6 @@ export default (req: Request, res: Response, next: NextFunction) => {
     
     if (id != decoded.sub) {
       return res.status(401).json({
-        error: true,
         message: "Unauthorized action."
       })
     }
@@ -18,7 +17,6 @@ export default (req: Request, res: Response, next: NextFunction) => {
     return next();
   } catch(err) {
     return res.status(400).json({
-      error: true, 
       message: err.message
     });
   }

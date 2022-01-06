@@ -10,13 +10,11 @@ export class UserDeleteController {
 
     if (result instanceof Error) {
       return res.status(400).json({
-        error: true, 
         message: result.message
       });
     }
 
     return res.status(200).json({
-      error: false,
       message: "User has been deleted."
     });
   }

@@ -11,7 +11,6 @@ export class UserLoginController {
 
     if (user instanceof Error) {
       return res.status(400).json({
-        error: true,
         message: user.message
       })
     }
@@ -22,7 +21,6 @@ export class UserLoginController {
     });
 
     return res.status(200).json({
-      error: false,
       user: {
         ...user
       },

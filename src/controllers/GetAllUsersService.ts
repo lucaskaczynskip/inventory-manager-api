@@ -8,7 +8,6 @@ export class GetAllUserController {
     const users = await service.execute();
 
     return res.status(200).json({
-      error: false,
       users: users 
     });
   }

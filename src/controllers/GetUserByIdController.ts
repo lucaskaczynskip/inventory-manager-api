@@ -10,13 +10,11 @@ export class GetUserByIdController {
 
     if (user instanceof Error) {
       return res.status(400).json({
-        error: true,
         message: user.message
       });
     }
 
     return res.status(200).json({
-      error: false,
       user: {
         id: user.id,
         name: user.name,

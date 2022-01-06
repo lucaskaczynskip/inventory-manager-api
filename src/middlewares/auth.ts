@@ -7,7 +7,6 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
     if (!auth) {
       return res.status(400).json({
-        error: true,
         message: "JWT is missing."
       });
     }
@@ -18,7 +17,6 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
     if (!decoded) {
       return res.status(400).json({
-        error: true,
         message: "JWT invalid."
       });
     }
@@ -27,7 +25,6 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
   } catch(err) {
     return res.status(400).json({
-      error: true, 
       message: err.message
     });
   }
