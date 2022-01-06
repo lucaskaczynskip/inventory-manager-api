@@ -1,5 +1,4 @@
 import { getRepository } from "typeorm"
-import { Product } from "../entities/Product";
 import { User } from "../entities/User"
 
 export class GetAllUsersService {
