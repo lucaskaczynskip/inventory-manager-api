@@ -4,6 +4,8 @@ import { Router } from "express";
 import { GetAllUserController } from "./controllers/GetAllUsersService";
 import { GetUserByIdController } from "./controllers/GetUserByIdController";
 import { ProductCreateController } from "./controllers/ProductCreateController";
+import { ProductDeleteController } from "./controllers/ProductDeleteController";
+import { ProductUpdateController } from "./controllers/ProductUpdateController";
 import { UserCreateController } from "./controllers/UserCreateController";
 import { UserDeleteController } from "./controllers/UserDeleteController";
 import { UserLoginController } from "./controllers/UserLoginController";
@@ -24,5 +26,7 @@ routes.put("/users/:id", auth, isLogged, new UserUpdateController().handle);
 routes.delete("/users/:id", auth, isLogged, new UserDeleteController().handle);
 
 routes.post("/products/:id", auth, new ProductCreateController().handle);
+routes.delete("/products/:id", auth, new ProductDeleteController().handle);
+routes.put("/products/:id", auth, new ProductUpdateController().handle);
 
 export { routes };
