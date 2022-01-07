@@ -4,6 +4,7 @@ import { User } from "./User";
 
 @Entity("products")
 export class Product {
+  [x: string]: any;
   @PrimaryColumn()
   id: string;
 
